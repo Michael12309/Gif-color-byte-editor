@@ -15,9 +15,7 @@ import struct
 
 class GlobalColorTableNotSet(Exception):
     """To be raised if there is no Global Color Table"""
-    print('Global Color Table Flag is not set\n\
-cannot change color fot this .gif file...\n\
-Exiting program...')
+    pass
 
 class GifData():
     """This is an object to hande Gif color data"""
@@ -30,6 +28,10 @@ class GifData():
             condensed_byte = str(bin(struct.unpack('>B', self.data[-1:])[0])[2:])
             if condensed_byte[0] != '1':
                 raise GlobalColorTableNotSet
+                print('Global Color Table Flag is not set\n\
+cannot change color fot this .gif file...\n\
+Exiting program...')
+                exit(0)
             # last 3 bits of byte 10 are size of global color table
             self.color_table_size = int(condensed_byte[-3:], base=2)
             # from onicos.com/staff/iz/formats/gif.html#ib
