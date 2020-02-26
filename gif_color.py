@@ -1,4 +1,4 @@
-"""A midule to handle the bytes inside of a .gif image
+"""A module to handle the bytes inside of a .gif image
 
 At the moment, this only changes colors if a Global Color Table
 is set for the gif (true for most gifs).  I have plans to add
